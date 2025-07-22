@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aditya Shukla | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-color: #10100f;
+      --accent-color: #ffc107;
+      --background-color: #100808;
+      --card-bg: #f8f7f6;
+      --text-color: #212529;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f2027;
+      color: rgb(15, 15, 15);
+    }
+
+    #solar-intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10 00;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .planet {
+      border-radius: 1990%;
+      position: absolute;
+      animation-timing-function: linear;
+    }
+
+    .sun {
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, #ffcc00, #ff6600);
+      z-index: 1000;
+      border-radius:1990%;S
+      
+    
+      
+    }
+
+    .earth {
+      width: 20px;
+      height: 20px;
+      background: skyblue;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbit 1s linear infinite;
+    }
+
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+    }
+
+    #portfolio {
+      display: none;
+      background: linear-gradient(to right, #6a11cb, #b8ccf0);
+      color: var(--text-color);
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), #6f42c1);
+      color: rgb(248, 212, 9);
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      animation: slideIn 1s ease;
+      position: relative;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #0e0d0d;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      background: var(--card-bg);
+      margin: 30px 0;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 12px;
+    }
+
+    section p, li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 5px 10px 5px 0;
+      padding: 8px 16px;
+      background-color: var(--accent-color);
+      color: #000;
+      border-radius: 25px;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: background-color 0.3s;
+    }
+
+    .contact a:hover {
+      background-color: #e0a800;
+    }
+
+    .button-group {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      background-color: #5a189a;
+    }
+
+    .cert-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .cert-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+
+    .cert-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills li {
+      background-color: #e9ecef;
+      padding: 10px 15px;
+      border-radius: 20px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .skills li:hover {
+      transform: scale(1.05);
+      background-color: #adb5bd;
+      color: white;
+    }
+
+    progress {
+      width: 100%;
+      height: 20px;
+      border-radius: 10px;
+      appearance: none;
+    }
+
+    progress::-webkit-progress-bar {
+      background-color: #e9ecef;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: var(--primary-color);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .project p {
+      color: #6c757d;
+      margin-bottom: 15px;
+    }
+
+    .project a {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Solar System Intro -->
+  <div id="solar-intro">
+    <div class="sun"></div>
+    <div class="planet earth"></div>
+    <h1 style="color: white; font-size: 2rem; margin-top: 200px;">Welcome to Aditya's Portfolio</h1>
+  </div>
+
+  <!-- Main Portfolio -->
+  <div id="portfolio">
+    <header>
+      <img class="profile-img" src="https://media.licdn.com/dms/image/v2/D5603AQFuMCleUUWLLQ/profile-displayphoto-scale_400_400/B56ZgMw4Y_G4Ag-/0/1752560798156?e=1755734400&v=beta&t=XtrMjiwSeGqpnIRkCStvB-w5c2ElVlKNGCXN6v2-DNY" alt="Aditya Shukla" />
+      <h1> Aditya Shukla</h1>
+      <p>Full Stack Developer | MCA Student | Web Enthusiast</p>
+      <div class="button-group">
+        <button class="btn" onclick="window.location='#education'">Education</button>
+        <button class="btn" onclick="window.location='#certifications'">Certifications</button>
+        <button class="btn" onclick="window.location='#contact'">Contact</button>
+        <button class="btn" onclick="window.location='#projects'">Projects</button>
+        <button class="btn" onclick="window.location='#skills'">Skills</button>
+        <button class="btn" onclick="window.location='#experience'">Experience</button>
+        <button class="btn" onclick="window.location='#achievements'">Achievements</button>
+        <button class="btn" onclick="window.location='#hobbies'">Hobbies</button>
+        <button class="btn" onclick="window.location='#testimonials'">Testimonials</button>
+      </div>
+    </header>
+ </div>
+  </header>
+
+  <section id="objective">
+    <h2>Career Objective</h2>
+    <p>Dedicated and passionate MCA Student seeking to contribute innovative solutions and grow in the tech industry through real-world projects, collaborative environments, and continuous learning.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>MCA</strong> – Shri Guru Ram Rai University, Dehradun (Appearing) (2024–2026)</li>
+      <li><strong>BCA</strong> – Invertis University, Bareilly – 77% (2021–2024)</li>
+      <li><strong>Class XII</strong> – Lions Rohilla Inter College – 77% (2021)</li>
+      <li><strong>Class X</strong> – Saraswati Vidya Mandir – 81% (2019)</li>
+    </ul>
+  </section>
+
+</div>
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Vaultofcode</strong> – Full Stack Developer Intern (2023–Present)</li>
+      <li><strong>Accenture</strong> – Developer Program (2023)</li>
+      <li><strong>British Airways</strong> – Data Science Intern (2023)</li>
+      <li><strong>Deloitte</strong> – Cyber Job Intern (2023)</li>
+    </ul>
+
+  <section id="certifications">
+    <h2>Certifications & Courses</h2>
+    <ul>
+      <li>Google Analytics Individual Qualification – Google</li>
+      <li>Develop Your Communication Skills – LinkedIn Learning</li>
+      <li>Design Patterns for React – LinkedIn Learning</li>
+      <li>Prompt Engineering – Deeplearning.ai</li>
+      <li>Python, Java, Ethical Hacking – LinkedIn Learning</li>
+    </ul>
+<ul>
+    <li>Devloper program – Accenture </li>
+    <li>Full stack Dvelopment – Simplelearn </li>
+    <li>Data Science – British Airways </li>
+    <li>Solutions Architecture – AWS</li>
+    <li>Fundamental of Six Sigma (White belt) – Six Sigma  </li>
+    <li>Gen AI Powered Data Analytics – TATA </li>
+    <li>Cyber Job – Deloitte </li>
+
+</ul>
+    <div class="cert-gallery">
+      <img src="https://media.licdn.com/dms/image/v2/D5622AQHF1p0gkVNRnw/feedshare-shrink_1280/feedshare-shrink_1280/0/1690612538439?e=1755734400&v=beta&t=ytGi1Mmr7IySIbxIgzC8l5VdpnP-ohTmI726cdNGpNU" alt="Google Analytics">
+      <img src="https://media.licdn.com/dms/image/v2/D4D22AQGoFJD3Z6l6kw/feedshare-shrink_800/feedshare-shrink_800/0/1685446948802?e=1755734400&v=beta&t=c-SEjlSer5Ch353z9y9VMbCJnAztS5VB5s7xzkK65OY" alt="Communication Skills">
+      <img src="https://media.licdn.com/dms/image/v2/D4D22AQEUXN_-BlUUKA/feedshare-shrink_800/feedshare-shrink_800/0/1693928288785?e=1755734400&v=beta&t=x-GLwJ_tO7cJ4FFY10SWGkREQCHfIptPBdCOkA1LWO8" alt="intro AI metaverse">
+      <img src="https://media.licdn.com/dms/image/v2/D4D22AQG3jTMp6Pn6eQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1697558372160?e=1755734400&v=beta&t=H3t44LMI4xT7B-nznd6Auv4u2Ak2MPWSf_PFbNYraRk" alt="Prompt Engineering">
+      <img src="https://media.licdn.com/dms/image/v2/D5622AQE0YsuJ-1n4dQ/feedshare-shrink_2048_1536/B56ZfBkae_G0A0-/0/1751299238583?e=1755734400&v=beta&t=6fKvOiFHu4kqZrn-2_1OTjBcsGcbUTIXJaOo2ljHf9w" alt="Data Science">
+      <img src="https://certificates.simplicdn.net/share/8608580_89806541752223790576.png" alt="Solutions Architecture">
+      <img src="https://media.licdn.com/dms/image/v2/D5622AQFBOi6o80gu3A/feedshare-shrink_1280/B56ZeyEVSdHQAk-/0/1751039170262?e=1755734400&v=beta&t=E1KcyDx5tzSAQQTSgUQx53QtrwxnQTaxveshAD0HZjE" alt="Solutions Architecture">
+      <img src="C:\Users\Admin\Downloads\1750661347693_page-0001.jpg" alt="Solutions Architecture">
+      <img src="C:\Users\Admin\Downloads\1751004962561_page-0001.jpg" alt="Solutions Architecture">
+      <img src="C:\Users\Admin\Downloads\1750657399346_page-0001.jpg" alt="Solutions Architecture">
+
+
+
+
+    </div>
+  </section>
+<section id="projects">
+  <h2>Projects</h2>
+  <ul>
+    <li>
+      <strong>Mainstream Player</strong> – A YouTube-like video platform built using HTML, CSS, and JS. <br>
+      <a href="https://github.com/yourusername/mainstream-player" target="_blank">GitHub Repo</a>
+    </li>
+    <li>
+      <strong>Smart Agriculture Monitoring System</strong> – IoT + Web project to monitor soil conditions and send alerts. <br>
+      <a href="https://github.com/yourusername/agriculture-monitor" target="_blank">GitHub Repo</a>
+    </li>
+  </ul>
+</section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Secured 1st position in Hackathon at Invertis University.</li>
+      <li>Completed 100+ hours of online courses on platforms like Coursera and Udemy.</li>
+      <li>Participated in various coding competitions and hackathons.</li>
+    </ul>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <p>I enjoy reading tech blogs, exploring new programming languages, and contributing to open-source projects. I also love playing chess and solving puzzles in my free time.</p>
+  </section>
+
+<section id="skills">
+  <h2>Soft Skills</h2>
+  <ul>
+    <li>Problem Solving</li>
+    <li>Team Collaboration</li>
+    <li>Time Management</li>
+    <li>Adaptability</li>
+    <li>Effective Communication</li>
+  
+  <h2>Technical Skills</h2>
+  <ul>
+    <li>HTML/CSS <progress value="95" max="100"></progress></li>
+    <li>JavaScript <progress value="85" max="100"></progress></li>
+    <li>React <progress value="75" max="100"></progress></li>
+    <li>Python, Java, C++ <progress value="80" max="100"></progress></li>
+    <li>AWS, MySQL, Git <progress value="70" max="100"></progress></li>
+  </ul>
+ 
+</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:shuklaaditya0203@gmail.com">shuklaaditya0203@gmail.com</a></p>
+    <p>Phone: <a href="tel:+918535095052">+91 8535095052</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aditya-shukla-344b7021b" target="_blank">linkedin.com/in/aditya-shukla</a></p>
+    <p>Location: Dehradun, India</p>
+  </section>
+  
+<section id="testimonials">
+  <h2>Testimonials</h2>
+  <blockquote>"Aditya is a focused and quick learner. He worked on real-time projects and delivered quality code." – Mentor at Vaultofcode</blockquote>
+</section>
+
+ 
+ 
+</body>
+</html>
+    <!-- You can continue with sections like Education, Certifications, Skills, Contact, Projects, etc. here -->
+
+  </div>
+
+  <!-- Intro Hide Logic -->
+  <script>
+    setTimeout(() => {
+      document.getElementById('solar-intro').style.display = 'none';
+      document.getElementById('portfolio').style.display = 'block';
+    }, 4000);
+  </script>
+</body>
+</html>
